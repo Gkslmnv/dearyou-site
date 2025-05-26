@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linkini Oluştur - DearYou</title>
+  <link rel="stylesheet" href="form-styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Linkini Oluştur</h1>
+
+    <label>Fotoğraf Yükle (maks. 3 adet)</label>
+    <div class="photo-upload">
+      <input type="file" accept="image/*" multiple />
+      <p>Fotoğraf ekle</p>
+    </div>
+
+    <label>Şarkımızın Sözünden Bir Satır <span style="font-weight: normal;">(isteğe bağlı)</span></label>
+    <input type="text" placeholder="İkimizin yerine ben ağlıyorum..." />
+
+    <label>Mesajın</label>
+    <textarea rows="4" placeholder="Bazen susmak, özlediğini söylemenin en sessiz yoludur."></textarea>
+
+    <div class="row">
+      <div>
+        <label>Alıcının İsmi <span style="font-weight: normal;">(isteğe bağlı)</span></label>
+        <input type="text" placeholder="Elif" />
+      </div>
+      <div>
+        <label>Gönderenin İsmi <span style="font-weight: normal;">(isteğe bağlı)</span></label>
+        <input type="text" placeholder="Ali" />
+      </div>
+    </div>
+
+    <button>Devam Et ve Link Oluştur</button>
+  </div>
+</body>
+</html>

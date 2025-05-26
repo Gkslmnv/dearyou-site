@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DearYou – Kalbinden Gelen Bir Mesaj</title>
+  <style>
+    /* Genel stil */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff8f0;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    /* Container */
+    .container {
+      width: 90%;
+      max-width: 900px;
+      margin: 0 auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px 0;
+    }
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 12px;
+      color: #c94f5a;
+      font-weight: 700;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 30px;
+    }
+    /* Link preview card */
+    .link-preview {
+      background: #ffe6e9;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 400px;
+      margin: 0 auto 40px;
+      box-shadow: 0 2px 8px rgb(201 79 90 / 0.2);
+      text-align: center;
+    }
+    .link-preview img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .link-preview .preview-text {
+      font-size: 1rem;
+      color: #a33c45;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    /* Buton */
+    .link-create-btn {
+      background-color: #c94f5a;
+      color: white;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 30px;
+      cursor: pointer;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+      margin-bottom: 70px;
+      text-align: center; 
+    }
+    .link-create-btn {
+      background-color: #a63e46;
+    }
+    /* Özellikler bölümü */
+    .features {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+    .feature-box {
+      background: #fbe8ea;
+      border-radius: 15px;
+      flex: 1 1 28%;
+      min-width: 200px;
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgb(201 79 90 / 0.15);
+      transition: transform 0.3s ease;
+    }
+    .feature-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 15px rgb(201 79 90 / 0.25);
+    }
+    .feature-box img {
+      width: 60px;
+      margin-bottom: 15px;
+    }
+    .feature-box h3 {
+      margin-bottom: 10px;
+      color: #c94f5a;
+      font-weight: 600;
+    }
+    .feature-box p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+    /* Mini SSS / Güven bölümü */
+    .trust-section {
+      background: #fff1f3;
+      border-radius: 12px;
+      padding: 25px 20px;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      box-shadow: 0 2px 8px rgb(201 79 90 / 0.15);
+      font-size: 0.95rem;
+      color: #8a4b52;
+      line-height: 1.4;
+      text-align: center;
+    }
+    /* Footer */
+    footer {
+      background: #c94f5a;
+      color: white;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #ffe6e9;
+      margin: 0 10px;
+    }
+    /* Responsive */
+    @media(max-width: 700px) {
+      .features {
+        flex-direction: column;
+        align-items: center;
+      }
+      .feature-box {
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Kalbinden gelen bir mesajın mı var?</h1>
+      <p>Sevgiline duygusal bir sayfa oluştur, sadece onun görebileceği şekilde.</p>
+    </section>
+
+    <!-- Link Önizleme Kartı -->
+    <section class="link-preview">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Örnek Link Önizleme" />
+      <div class="preview-text">“Sevgimize özel anılar, sadece biz görebiliriz.”</div>
+    </section>
+
+    <!-- Link Oluştur Butonu -->
+   <a href="create.html" class="link-create-btn">
+                Link Oluştur
+</a>
+
+
+    <!-- Özellikler Bölümü -->
+    <section class="features" aria-label="Özellikler">
+      <div class="feature-box">
+        <img src="https://img.icons8.com/ios-filled/100/000000/camera.png" alt="Fotoğraf" />
+        <h3>📸 Fotoğraf ekle</h3>
+        <p>Sevgiline özel anılarını paylaş.</p>
+      </div>
+      <div class="feature-box">
+        <img src="https://img.icons8.com/ios-filled/100/000000/musical-notes.png" alt="Şarkı & Söz" />
+        <h3>🎵 Şarkı & söz ekle</h3>
+        <p>Birlikte dinlediğiniz şarkıyı ve sözlerini ekle.</p>
+      </div>
+      <div class="feature-box">
+        <img src="https://img.icons8.com/ios-filled/100/000000/speech-bubble.png" alt="Mesaj bırak" />
+        <h3>💬 Mesaj bırak</h3>
+        <p>Duygularını açıkça ifade et.</p>
+      </div>
+    </section>
+
+    <!-- Mini SSS / Güven Bölümü -->
+    <section class="trust-section" aria-label="Güven Bilgisi">
+      <p>🔒 Sadece sen ve gönderdiğin kişi görebilir.</p>
+      <p>🗑️ Linkini istediğin zaman silebilirsin.</p>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div>DearYou &copy; 2025 | 
+      <a href="https://twitter.com/dearyou" target="_blank" rel="noopener noreferrer">Twitter</a> | 
+      <a href="https://www.instagram.com/gokseelllll/" target="_blank" rel="noopener noreferrer">Instagram</a> | 
+      <a href="mailto:contact@dearyou.site">İletişim</a>
+    </div>
+  </footer>
+
+</body>
+</html>
