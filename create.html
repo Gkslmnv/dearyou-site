@@ -12,28 +12,86 @@
 
     <label>Fotoğraf Yükle (maks. 3 adet)</label>
     <div class="photo-upload">
-      <input type="file" accept="image/*" multiple />
+      <input type="file" id="photoInput" accept="image/*" multiple />
       <p>Fotoğraf ekle</p>
     </div>
 
+    <label>Spotify Şarkı Linki <span style="font-weight: normal;">(isteğe bağlı)</span></label>
+    <input type="url" id="spotifyLink" placeholder="https://open.spotify.com/track/..." />
+    <small style="color: #666; font-size: 0.9rem;">Spotify'dan şarkı linkini kopyalayıp buraya yapıştırın</small>
+
     <label>Şarkımızın Sözünden Bir Satır <span style="font-weight: normal;">(isteğe bağlı)</span></label>
-    <input type="text" placeholder="İkimizin yerine ben ağlıyorum..." />
+    <input type="text" id="lyrics" placeholder="İkimizin yerine ben ağlıyorum..." />
 
     <label>Mesajın</label>
-    <textarea rows="4" placeholder="Bazen susmak, özlediğini söylemenin en sessiz yoludur."></textarea>
+    <textarea rows="4" id="message" placeholder="Bazen susmak, özlediğini söylemenin en sessiz yoludur."></textarea>
 
     <div class="row">
       <div>
         <label>Alıcının İsmi <span style="font-weight: normal;">(isteğe bağlı)</span></label>
-        <input type="text" placeholder="Elif" />
+        <input type="text" id="receiverName" placeholder="Elif" />
       </div>
       <div>
         <label>Gönderenin İsmi <span style="font-weight: normal;">(isteğe bağlı)</span></label>
-        <input type="text" placeholder="Ali" />
+        <input type="text" id="senderName" placeholder="Ali" />
       </div>
     </div>
 
-    <button>Devam Et ve Link Oluştur</button>
+    <button onclick="createLink()">Devam Et ve Link Oluştur</button>
   </div>
+
+  <script>
+    function createLink() {
+      // Form verilerini topla
+      const photos = document.getElementById('photoInput').files;
+      const spotifyLink = document.getElementById('spotifyLink').value;
+      const lyrics = document.getElementById('lyrics').value;
+      const message = document.getElementById('message').value;
+      const receiverName = document.getElementById('receiverName').value;
+      const senderName = document.getElementById('senderName').value;
+
+      // Mesaj zorunlu kontrolü
+      if (!message.trim()) {
+        alert('Lütfen bir mesaj yazın!');
+        return;
+      }
+
+      // Unique ID oluştur
+      const linkId = 'dear_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+
+      // Fotoğrafları base64'e çevir
+      const photoPromises = [];
+      for (let i = 0; i < photos.length && i < 3; i++) {
+        photoPromises.push(convertToBase64(photos[i]));
+      }
+
+      Promise.all(photoPromises).then(photoBase64Array => {
+        // Veriyi localStorage'a kaydet (gerçek uygulamada veritabanına kaydedilir)
+        const linkData = {
+          photos: photoBase64Array,
+          spotifyLink: spotifyLink,
+          lyrics: lyrics,
+          message: message,
+          receiverName: receiverName,
+          senderName: senderName,
+          createdAt: new Date().toISOString()
+        };
+
+        localStorage.setItem(linkId, JSON.stringify(linkData));
+
+        // Link sayfasına yönlendir
+        window.location.href = `view.html?id=${linkId}`;
+      });
+    }
+
+    function convertToBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+      });
+    }
+  </script>
 </body>
 </html>
